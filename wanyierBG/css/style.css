@@ -1,0 +1,45 @@
+.funcSelect{
+	width: 33%;
+	float: left;
+	border: 1px solid rgb(200,200,200);
+	position: relative;
+	cursor: pointer;
+}
+.funcSelect:hover{
+	border: 1px solid #D58512;
+}
+.funcSelect:after{
+	content: "";
+	display: block;
+	height: 0;
+	clear: both;
+}
+.funcSelect img{
+	display: block;
+	width: 100%;
+}
+.funcSelect p{
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	text-align: center;
+	margin: 0;
+	color: white;
+	background-color: rgba(220,220,200,0.8);
+	padding: 5px;
+}
+
+.unbuild{
+	margin: auto;margin-top:100px;text-align: center;padding: 10px;border:1px #CCCCCC dashed;background-color: white;border-radius: 10px;width: 50%;max-width: 200px;
+}
+.searchArea{
+	float: right;
+}
+
+.searchInput{
+	width: 200px;
+	background-color: rgba(0,0,0,0);
+	border: none;
+	border-bottom: 1px solid #cccccc;
+	font-size: 0.8em;
+}
