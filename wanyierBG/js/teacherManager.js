@@ -76,6 +76,9 @@
 							}
 						}
 						$("#searchList_teacherName").append($item);
+						$item.on('click',function(){
+							$("#teacherInfo").modal()
+						})
 					}
 				}
 				else{
@@ -132,6 +135,9 @@
 							}
 						}
 						$("#searchList_teacherNum").append($item);
+						$item.on('click',function(){
+							
+						})
 					}
 				}
 				else{
