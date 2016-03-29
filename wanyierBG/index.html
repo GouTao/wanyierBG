@@ -131,7 +131,7 @@
 									<span class="glyphicon glyphicon-search"></span>按教师名称查询
 									<small><a id="checkShowByName" showMode="all">[未审核教师]</a></small>
 									<div class="searchArea">
-										<input class="searchInput" id="searchTeacherByNameText"  type="text" placeholder="请输入您需要查询的教师名称"/>
+										<input class="searchInput" id="searchTeacherByNameText"  type="text" placeholder="请输入教师名称"/>
 										<button class="btn btn-success btn-sm" id="searchTeacherByNameBtn">查询</button>
 									</div>
 									
@@ -151,7 +151,7 @@
 									<span class="glyphicon glyphicon-search"></span>按教师手机号码查询
 									<small><a id="checkShowByNum" showMode="all">[未审核教师]</a></small>
 									<div class="searchArea" >
-										<input class="searchInput" id="searchTeacherByNumText"  type="text" placeholder="请输入您需要查询的教师的手机号码"/>
+										<input class="searchInput" id="searchTeacherByNumText"  type="text" placeholder="请输入教师的手机号码"/>
 										<button class="btn btn-success btn-sm" id="searchTeacherByNumBtn">查询</button>
 									</div>
 								</h4>
@@ -196,14 +196,41 @@
 		            </h4>
 		         </div>
 		         <div class="modal-body">
-		         	<form role="form">
-		           	 	<div class="form-group">
-				    	<label for="code">请输入验证码:</label>
-				    	<span id="codePre">996022</span>
-				        <input type="text" class="form-control" id="code" placeholder="请输入验证码..."/>
-					    </div>
-				    </form>
-				    <button class="btn btn-success btn-block" id="subBtn">确认</button>
+		         	
+		           	<div class="teacher_infoShow">
+		           	 	<div>
+		           	 		<label>教师名称:</label>
+				    		<p id="teacherName"></p>
+		           	 	</div>	
+				    	<div>
+				    		<label>联系电话:</label>
+				        	<p id="teacherNum"></p>
+				    	</div>
+				        <div>
+				        	<label>简介:</label>
+				        	<p id="teacherDesshort"></p>
+				        </div>
+				        <div>
+				        	<label>详情:</label>
+				        	<p id="teacherDeslong"></p>
+				        </div>
+				        <div>
+				        	<label>地址:</label>
+				        	<p id="teacherAddress"></p>
+				        </div>
+				        
+				    </div>
+				    <div class="modal-btnContent">
+				    	<button class="btn btn-success btn-block modal-button" id="teacherConfirBtn">通过审核</button>
+				   	 	<button class="btn btn-danger btn-block modal-button" id="teacherRejectBtn">拒绝通过审核</button>
+				    </div>
+				    
+				    <hr />
+				    <div id="rejectArea">
+				    	<label>拒绝通过原因</label>
+				    	<textarea class="form-control" id="rejectReason"></textarea>
+				    	<button class="btn btn-success btn-block modal-button" id="teacherReject">确定</button>
+				    </div>
 		         </div>
 		      </div><!-- /.modal-content -->
 			</div><!-- /.modal -->

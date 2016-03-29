@@ -1,3 +1,6 @@
+a{
+	cursor: pointer;
+}
 .funcSelect{
 	width: 33%;
 	float: left;
@@ -42,4 +45,33 @@
 	border: none;
 	border-bottom: 1px solid #cccccc;
 	font-size: 0.8em;
+}
+.teacher_infoShow{
+	border: 1px solid #CCCCCC;
+	border-radius: 5px;
+	padding: 5px;
+}
+.teacher_infoShow p{
+	text-align: left;
+	word-break: break-all;
+	display: inline-block;
+}
+.modal-button{
+	margin:auto;
+	width: 50%;
+	max-width: 150px;
+	margin-top:5px ;
+}
+.modal-btnContent{
+	text-align: center;
+}
+.modal-btnContent:after{
+	content: "";
+	height: 0;
+	display: block;
+	clear: both;
+}
+.modal-btnContent button{
+	display: inline;
+	margin-top:5px ;
 }
