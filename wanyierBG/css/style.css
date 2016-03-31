@@ -45,13 +45,14 @@ a{
 	border: none;
 	border-bottom: 1px solid #cccccc;
 	font-size: 0.8em;
+	padding: 2px;
 }
-.teacher_infoShow{
+.modal_infoShow{
 	border: 1px solid #CCCCCC;
 	border-radius: 5px;
 	padding: 5px;
 }
-.teacher_infoShow p{
+.modal_infoShow p{
 	text-align: left;
 	word-break: break-all;
 	display: inline-block;

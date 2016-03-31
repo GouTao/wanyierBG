@@ -71,10 +71,22 @@
 			</div>
 			<div data-role="content">
 				<div data-role="page-mode" mode="pm1" class="active">
-					1
+					<div class="container">
+						<div class="row">
+							<div class="col-md-8 col-md-offset-2">
+								<h4>
+									<span class="glyphicon glyphicon-list"></span>待审核课程列表
+									<button class="btn btn-warning btn-wide" id="getPreCourseBtn">刷新列表</button>
+								</h4>
+								<hr />
+								<ul class="list-group" id="preCheckList_course">
+								</ul>
+							</div>
+						</div>
+					</div>
 				</div>
 				<div data-role="page-mode" mode="pm2" >
-					<p class="unbuild">规划中</p>
+					<p class="unbuild">建设中</p>
 				</div>
 				<div data-role="page-mode" mode="pm3" >
 					<p class="unbuild">规划中</p>
@@ -88,8 +100,8 @@
 						<label>审核</label>
 					</li>
 					<li mode-target="pm2">
-						<span class="glyphicon glyphicon-unchecked"></span>
-						<label>规划中</label>
+						<span class="glyphicon glyphicon-tent"></span>
+						<label>课程大类管理</label>
 					</li>
 					<li mode-target="pm3">
 						<span class="glyphicon glyphicon-unchecked"></span>
@@ -121,7 +133,6 @@
 							</div>
 						</div>
 					</div>
-					
 				</div>
 				<div data-role="page-mode" mode="pm2" >
 					<div class="container">
@@ -197,7 +208,7 @@
 		         </div>
 		         <div class="modal-body">
 		         	
-		           	<div class="teacher_infoShow">
+		           	<div class="modal_infoShow">
 		           	 	<div>
 		           	 		<label>教师名称:</label>
 				    		<p id="teacherName"></p>
@@ -226,10 +237,103 @@
 				    </div>
 				    
 				    <hr />
-				    <div id="rejectArea">
+				    <div id="rejectArea_teacher">
 				    	<label>拒绝通过原因</label>
-				    	<textarea class="form-control" id="rejectReason"></textarea>
+				    	<textarea class="form-control" id="rejectReason_teacher"></textarea>
 				    	<button class="btn btn-success btn-block modal-button" id="teacherReject">确定</button>
+				    </div>
+		         </div>
+		      </div><!-- /.modal-content -->
+			</div><!-- /.modal -->
+		</div>
+		
+		<!-- 模态框（Modal） -->
+		<div class="modal fade" id="courseInfo" tabindex="-1" role="dialog" 
+		   aria-labelledby="myModalLabel1" aria-hidden="true">
+		   <div class="modal-dialog">
+		      <div class="modal-content">
+		         <div class="modal-header">
+		            <button type="button" class="close" 
+		               data-dismiss="modal" aria-hidden="true">
+		                  &times;
+		            </button>
+		            <h4 class="modal-title" id="myModalLabel1">
+		             	 待审核课程信息详情
+		            </h4>
+		         </div>
+		         <div class="modal-body">
+		         	
+		           	<div class="modal_infoShow">
+		           	 	<div>
+		           	 		<label>课程名称:</label>
+				    		<p id="courseName"></p>
+		           	 	</div>	
+				    	<div>
+				    		<label>课程大类:</label>
+				        	<p id="courseType"></p>
+				    	</div>
+				    	<div>
+				    		<label>是否提供试听:</label>
+				        	<p id="courseTrail"></p>
+				    	</div>
+				        <div>
+				        	<label>课程时长:</label>
+				        	<p id="courseLength"></p>
+				        </div>
+				        <div>
+				        	<label>课程节数:</label>
+				        	<p id="courseTotal"></p>
+				        </div>
+				        <div>
+				        	<label>上课地址:</label>
+				        	<div id="courseAddress">
+								<p style="display: none;text-indent: 2em;word-break: break-word;" class="address1"></p>
+								<p style="display: none;text-indent: 2em;word-break: break-word;" class="address2"></p>
+							</div>
+				        </div>
+				         <div>
+				        	<label>上课时间（星期）:</label>
+				        	<p id="courseDay"></p>
+				        </div>
+				         <div>
+				        	<label>上课时段:</label>
+				        	<p id="courseTime"></p>
+				        </div>
+				         <div>
+				        	<label>课程花费:</label>
+				        	<p id="coursePrice"></p>
+				        </div>
+				         <div>
+				        	<label>课程备注:</label>
+				        	<p id="courseNote"></p>
+				        </div>
+				         <div>
+				        	<label>授课老师:</label>
+				        	<p id="courseTeacher"></p>
+				        </div>
+				        <div>
+				        	<label>授课老师简介:</label>
+				        	<p id="courseTeacher_short"></p>
+				        </div>
+				         <div>
+				        	<label>授课老师详情:</label>
+				        	<p id="courseTeacher_long"></p>
+				        </div>
+				         <div>
+				        	<label>授课老师联系电话:</label>
+				        	<p id="courseTeacher_phoneNum"></p>
+				        </div>
+				    </div>
+				    <div class="modal-btnContent">
+				    	<button class="btn btn-success btn-block modal-button" id="courseConfirBtn">通过审核</button>
+				   	 	<button class="btn btn-danger btn-block modal-button" id="courseRejectBtn">拒绝通过审核</button>
+				    </div>
+				    
+				    <hr />
+				    <div id="rejectArea_course">
+				    	<label>拒绝通过原因</label>
+				    	<textarea class="form-control" id="rejectReason_course"></textarea>
+				    	<button class="btn btn-success btn-block modal-button" id="courseReject">确定</button>
 				    </div>
 		         </div>
 		      </div><!-- /.modal-content -->
@@ -242,5 +346,6 @@
 		<script type="text/javascript" src="js/theAjax.js" ></script>
 		<script type="text/javascript" src="js/xframe.js" ></script>
 		<script type="text/javascript" src="js/teacherManager.js" ></script>
+		<script type="text/javascript" src="js/cousreManager.js" ></script>
 	</body>
 </html>

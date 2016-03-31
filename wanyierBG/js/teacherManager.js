@@ -3,8 +3,8 @@
 	var showState=0,showNum=0;;//0 searchAll  1 searchByName  2 searchByNum
 	
 	$("#teacherManager").on("init",function(){
-		refreshData();
-		$("#getPreTeacherBtn").on("click",refreshData);
+		refreshTeacherData();
+		$("#getPreTeacherBtn").on("click",refreshTeacherData);
 		$("#searchTeacherByNameBtn").on("click",getTeacherByName);
 		$("#searchTeacherByNameText").keydown(function(event){ 
     			if(event.which==13){
@@ -21,7 +21,7 @@
   		});
   		
   		$('#teacherInfo').on('show.bs.modal', function (){
-  			$("#rejectArea").css('display','none');
+  			$("#rejectArea_teacher").css('display','none');
   			showDetail();
   		})
   		$('#teacherInfo').on('hide.bs.modal',function(){
@@ -33,15 +33,15 @@
 			$("#teacherDesshort").html("");
 			$("#teacherName").html("");
 			$("#teacherNum").html("");
-			$("#rejectReason").html("");
+			$("#rejectReason_teacher").html("");
 			$("#teacherAddress").html("");
   		})
 	})
 	$("#teacherManager").on("show",function(){
-		refreshData();
+		refreshTeacherData();
 	})
 	$("#teacherManager").on("hide",function(){
-		//refreshData();
+		//refreshTeacherData();
 		$("#preCheckList_teacher").empty();
 		$("#searchList_teacherName").empty();
 		$("#searchTeacherByNameText").val("");
@@ -53,7 +53,7 @@
 		$("#checkShowByNum").html("[未审核教师]");
 	})
 	
-	function refreshData(){
+	function refreshTeacherData(){
 		$("#preCheckList_teacher").empty();
 		var searchObj=new Object;
 		searchObj.command="getTeacherInfo";
@@ -76,9 +76,9 @@
 						$item.children('.name').html(searchAll[i].userName);
 					}
 					$("#preCheckList_teacher").append($item)
-					$item.on('click',function(){
+					$item.on('click',function(e){
 						showState=0;
-						showNum=Number($item.children('.id').html());
+						showNum=Number($(e.currentTarget).children('.id').html());
 						$("#teacherInfo").modal('show');
 					})
 				}
@@ -116,9 +116,9 @@
 							}
 						}
 						$("#searchList_teacherName").append($item);
-						$item.on('click',function(){
+						$item.on('click',function(e){
 							showState=1;
-							showNum=Number($item.children('.id').html());
+							showNum=Number($(e.currentTarget).children('.id').html());
 							$("#teacherInfo").modal('show');
 						})
 					}
@@ -177,9 +177,9 @@
 							}
 						}
 						$("#searchList_teacherNum").append($item);
-						$item.on('click',function(){
+						$item.on('click',function(e){
 							showState=2;
-							showNum=Number($item.children('.id').html());
+							showNum=Number($(e.currentTarget).children('.id').html());
 							$("#teacherInfo").modal('show');
 						})
 					}
@@ -262,6 +262,7 @@
 				if(res.result=="success"){
 					$("#teacherInfo").modal('hide');
 					alert('操作成功');
+					refreshTeacherData();
 				}
 				else{
 					alert("操作失败！原因：\n"+res.msg);
@@ -269,15 +270,15 @@
 			},null);
 		})
 		$("#teacherRejectBtn").on('click',function(){
-			if($("#rejectArea").css('display')=="block"){
-				$("#rejectArea").css('display','none');
+			if($("#rejectArea_teacher").css('display')=="block"){
+				$("#rejectArea_teacher").css('display','none');
 			}
 			else{
-				$("#rejectArea").css('display','block');
+				$("#rejectArea_teacher").css('display','block');
 			}
 		})
 		$("#teacherReject").on('click',function(){
-			if($("#rejectReason").val()==""){
+			if($("#rejectReason_teacher").val()==""){
 				alert("请填写拒绝原因");
 			}
 			else{
@@ -289,6 +290,7 @@
 					if(res.result=="success"){
 						$("#teacherInfo").modal('hide');
 						alert('操作成功');
+						refreshTeacherData();
 					}
 					else{
 						alert("操作失败！原因：\n"+res.msg);
