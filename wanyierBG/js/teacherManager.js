@@ -2,6 +2,7 @@
 	var searchByName=[],searchByNum=[];
 	
 	$("#teacherManager").on("init",function(){
+		alert("ok")
 		refreshData();
 		$("#getPreTeacherBtn").on("click",refreshData);
 		$("#searchTeacherByNameBtn").on("click",getTeacherByName);

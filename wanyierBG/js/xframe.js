@@ -37,6 +37,7 @@ var basic=(function layStyle(){
 	layStyle.to=function(pageID){
 		if($("#"+pageID).attr("inited")==undefined){
 			$("#"+pageID).trigger("init");
+			$("#"+pageID).attr("inited","ture")
 		}
 		else{
 			$("#"+pageID).trigger("show");
@@ -62,7 +63,6 @@ var basic=(function layStyle(){
 				$(this).removeClass('active');
 			})
 			$("#"+pageID).find("[data-role='page-mode']:first-child").addClass('active');
-			$("#"+pageID).attr("inited","ture")
 		}
 		
 		$("#"+pageID).addClass("pageChange pageIn").one("webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend",function(e){
