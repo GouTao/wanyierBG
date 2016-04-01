@@ -1,9 +1,10 @@
 (function(){
-	var preCourse=[];
-	var showNum=0;
+	var preCourse=[],courseType=[];
+	var showNum=0,typeNum=0,deletType="";
 	
 	$("#courseManager").on("init",function(){
 		refreshCourseData();
+		refreshCourseTypeData()
 		$("#getPreCourseBtn").on('click',refreshCourseData);
 		$('#courseInfo').on('show.bs.modal', function (){
   			$("#rejectArea_course").css('display','none');
@@ -27,9 +28,15 @@
 			$("#courseConfirBtn").unbind('click')
 			$("#rejectReason_course").val("");
 		})
+		$("#deletWarning").on('hide.bs.modal',function(){
+			$("#yesBtn").unbind("click");
+			$("#noBtn").unbind("click");
+		})
+		$("#getCourseStyleBtn").on('click',refreshCourseTypeData);
 	})
 	$("#courseManager").on("show",function(){
 		refreshCourseData();
+		refreshCourseTypeData();
 	})
 	$("#courseManager").on("hide",function(){
 		
@@ -166,5 +173,59 @@
 				},null);
 			}
 		})
+	}
+	
+	function refreshCourseTypeData(){
+		$("#preCheckList_courseStyle").empty();
+		var cyObj=new Object();
+		cyObj.command="getAllCourseType";
+		$.theAjax.post(cyObj,function(res){
+			if(res.result=="success"){
+				courseType=res.data;
+				for(var i=0;i<courseType.length;i++){
+//					<li class="list-group-item clearfix" style="padding: 5px;">
+//										<img src="bootstrap-3.3.5-dist/Map.png" style="height: 50px;"></img>
+//										<span>sss</span>
+//										<button class="btn btn-danger" style="float: right;margin-top: 8px;margin-right: 10px;">删除</button>
+//									</li>
+					var $item=$("<li class='list-group-item clearfix' style='padding: 5px;'>"+
+									"<p style='display:none' class='id'>"+i+"</p>"+
+									"<img src='"+courseType[i].url+"' style='height: 50px;'></img>"+
+									"<b style='font-size:1.2em;margin-left:5px'>"+courseType[i].typeName+"</b>"+
+									"<button class='btn btn-danger' style='float: right;margin-top: 8px;margin-right: 10px;'>删除</button>"+
+								"</li>"
+								);
+					$("#preCheckList_courseStyle").append($item);
+					$item.children('button').on("click",function(e){
+						typeNum=Number($(e.currentTarget).children('.id').html());
+						deletType="delectCourseType";
+						$("#deletWarning").modal('show');
+						$("#deletWarning").find("#yesBtn").bind('click',function(){
+							if(deletType=="delectCourseType"){
+								var deletObj=new Object;
+								deletObj.command="delectCourseType";
+								deletObj.id=courseType[typeNum]._id;
+								$.theAjax.post(deletObj,function(res){
+									if(res.result=="success"){
+										alert("操作成功！");
+										$("#deletWarning").modal('hide');
+										refreshCourseTypeData();
+									}
+									else{
+										alert("操作失败！");
+									}
+								},null);
+							}
+						})
+						$("#deletWarning").find("#noBtn").bind('click',function(){
+							$("#deletWarning").modal('hide');
+						})
+					})
+				}
+			}
+			else{
+				$("#preCheckList_courseStyle").append($("<li class='list-group-item-warning'>没有查询到课程分类</li>"));
+			}
+		},null)
 	}
 })()

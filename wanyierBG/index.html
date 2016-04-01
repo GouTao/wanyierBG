@@ -86,7 +86,22 @@
 					</div>
 				</div>
 				<div data-role="page-mode" mode="pm2" >
-					<p class="unbuild">建设中</p>
+					<div class="container">
+						<div class="row">
+							<div class="col-md-8 col-md-offset-2">
+								<h4>
+									<span class="glyphicon glyphicon-list"></span>课程大类管理
+									<button class="btn btn-warning btn-wide" id="getCourseStyleBtn">刷新列表</button>
+								</h4>
+								<hr />
+								<ul class="list-group" id="preCheckList_courseStyle">
+									
+								</ul>
+								<hr />
+								<button class="btn btn-block btn-success" style="margin: auto;width: 50%;max-width: 120px;">增加</button>
+							</div>
+						</div>
+					</div>
 				</div>
 				<div data-role="page-mode" mode="pm3" >
 					<p class="unbuild">规划中</p>
@@ -334,6 +349,31 @@
 				    	<label>拒绝通过原因</label>
 				    	<textarea class="form-control" id="rejectReason_course"></textarea>
 				    	<button class="btn btn-success btn-block modal-button" id="courseReject">确定</button>
+				    </div>
+		         </div>
+		      </div><!-- /.modal-content -->
+			</div><!-- /.modal -->
+		</div>
+		
+		<!-- 模态框（Modal） -->
+		<div class="modal fade" id="deletWarning" tabindex="-1" role="dialog" 
+		   aria-labelledby="myModalLabel3" aria-hidden="true">
+		   <div class="modal-dialog">
+		      <div class="modal-content">
+		         <div class="modal-header">
+		            <button type="button" class="close" 
+		               data-dismiss="modal" aria-hidden="true">
+		                  &times;
+		            </button>
+		            <h4 class="modal-title" id="myModalLabel3">
+		             	 删除操作确认
+		            </h4>
+		         </div>
+		         <div class="modal-body">
+		         	<p>你即将进行的操作将会永久删除数据，是否确定删除？</p>
+				    <div class="modal-btnContent">
+				    	<button class="btn btn-success btn-block modal-button" id="yesBtn">确定删除</button>
+				   	 	<button class="btn btn-danger btn-block modal-button" id="noBtn">取消删除</button>
 				    </div>
 		         </div>
 		      </div><!-- /.modal-content -->
