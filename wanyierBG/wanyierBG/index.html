@@ -1,0 +1,391 @@
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<title>玩艺儿后台管理</title>
+		<!-- main css -->
+		<link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="css/xframe.css" />
+		<link rel="stylesheet" href="css/style.css" />
+	</head>
+	<body>
+		<div data-role="page" id="logPage">
+			<div data-role="header">
+				<h4>玩艺儿后台管理</h4>
+			</div>
+			<div data-role="content">
+				<p class="unbuild">管理员登录模块暂缺</p>
+				<button class="btn btn-success btn-block leadBtn btn-wide" style="margin: auto;margin-top: 100px;width: 50%;max-width: 100px" data-role="page-lead" data-target="funcModule">登录</button>
+			</div>
+		</div>
+		
+		<div data-role = "slideBar" data-slideBar="sb1" style="background-color: #C0C0C0;color: #262626;">
+			<p>test</p><p>test</p>
+			<p>test</p><p>test</p>
+			<p>test</p><p>test</p>
+			<p>test</p><p>test</p>
+			<p>test</p><p>test</p>
+			<p>test</p><p>test</p>
+			<p>test</p><p>test</p>
+			<p>test</p><p>test</p>
+			<p>test</p><p>test</p>
+			<button class="btn btn-default btn-block" data-role="slide-back">CLOSE</button>
+		</div>
+		
+		<div data-role="page" id="funcModule" >
+			<div data-role="header" >
+				<h4>功能模块</h4>
+			</div>
+			<div data-role="content" >
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8 col-md-offset-2 clearfix">
+							<div class="funcSelect" data-role="page-lead" data-target='courseManager'>
+								<img src="bootstrap-3.3.5-dist/Map.png"/>
+								<p>课程管理</p>
+							</div>
+							<div class="funcSelect" data-role="page-lead" data-target='teacherManager'>
+								<img src="bootstrap-3.3.5-dist/Map.png"/>
+								<p>教师管理</p>
+							</div>
+							<div class="funcSelect">
+								<img src="bootstrap-3.3.5-dist/Map.png"/>
+								<p>xx管理</p>
+							</div>
+							<div class="funcSelect">
+								<img src="bootstrap-3.3.5-dist/Map.png"/>
+								<p>yy管理</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div data-role="page" id="courseManager">
+			<div data-role="header">
+				<h4>课程管理</h4>
+				<button class="btn btn-default btn-head-left" data-role="page-lead" data-target="back">
+					 <span class="glyphicon glyphicon-chevron-left"></span> 
+				</button>
+			</div>
+			<div data-role="content">
+				<div data-role="page-mode" mode="pm1" class="active">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-8 col-md-offset-2">
+								<h4>
+									<span class="glyphicon glyphicon-list"></span>待审核课程列表
+									<button class="btn btn-warning btn-wide" id="getPreCourseBtn">刷新列表</button>
+								</h4>
+								<hr />
+								<ul class="list-group" id="preCheckList_course">
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div data-role="page-mode" mode="pm2" >
+					<div class="container">
+						<div class="row">
+							<div class="col-md-8 col-md-offset-2">
+								<h4>
+									<span class="glyphicon glyphicon-list"></span>课程大类管理
+									<button class="btn btn-warning btn-wide" id="getCourseStyleBtn">刷新列表</button>
+								</h4>
+								<hr />
+								<ul class="list-group" id="preCheckList_courseStyle">
+									
+								</ul>
+								<hr />
+								<button class="btn btn-block btn-success" style="margin: auto;width: 50%;max-width: 120px;">增加</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div data-role="page-mode" mode="pm3" >
+					<p class="unbuild">规划中</p>
+				
+				</div>
+			</div>
+			<div data-role="footer">
+				<ul data-role="nav">
+					<li class="active" mode-target="pm1">
+						<span class="glyphicon glyphicon-check"></span>
+						<label>审核</label>
+					</li>
+					<li mode-target="pm2">
+						<span class="glyphicon glyphicon-tent"></span>
+						<label>课程大类管理</label>
+					</li>
+					<li mode-target="pm3">
+						<span class="glyphicon glyphicon-unchecked"></span>
+						<label>规划中</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div data-role="page" id="teacherManager">
+			<div data-role="header">
+				<h4>教师管理</h4>
+				<button class="btn btn-default btn-head-left" data-role="page-lead" data-target="back">
+					 <span class="glyphicon glyphicon-chevron-left"></span> 
+				</button>
+			</div>
+			<div data-role="content">
+				<div data-role="page-mode" mode="pm1" class="active">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-8 col-md-offset-2">
+								<h4>
+									<span class="glyphicon glyphicon-list"></span>待审核教师列表
+									<button class="btn btn-warning btn-wide" id="getPreTeacherBtn">刷新列表</button>
+								</h4>
+								<hr />
+								<ul class="list-group" id="preCheckList_teacher">
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div data-role="page-mode" mode="pm2" >
+					<div class="container">
+						<div class="row">
+							<div class="col-md-8 col-md-offset-2">
+								<h4 class="clearfix">
+									<span class="glyphicon glyphicon-search"></span>按教师名称查询
+									<small><a id="checkShowByName" showMode="all">[未审核教师]</a></small>
+									<div class="searchArea">
+										<input class="searchInput" id="searchTeacherByNameText"  type="text" placeholder="请输入教师名称"/>
+										<button class="btn btn-success btn-sm" id="searchTeacherByNameBtn">查询</button>
+									</div>
+									
+								</h4>
+								<hr />
+								<ul class="list-group" id="searchList_teacherName">
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div data-role="page-mode" mode="pm3" >
+					<div class="container">
+						<div class="row">
+							<div class="col-md-8 col-md-offset-2 ">
+								<h4 class="clearfix">
+									<span class="glyphicon glyphicon-search"></span>按教师手机号码查询
+									<small><a id="checkShowByNum" showMode="all">[未审核教师]</a></small>
+									<div class="searchArea" >
+										<input class="searchInput" id="searchTeacherByNumText"  type="text" placeholder="请输入教师的手机号码"/>
+										<button class="btn btn-success btn-sm" id="searchTeacherByNumBtn">查询</button>
+									</div>
+								</h4>
+								<hr />
+								<ul class="list-group" id="searchList_teacherNum">
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div data-role="footer">
+				<ul data-role="nav">
+					<li class="active" mode-target="pm1">
+						<span class="glyphicon glyphicon-check"></span>
+						<label>审核</label>
+					</li>
+					<li mode-target="pm2">
+						<span class="glyphicon glyphicon-search"></span>
+						<label>按姓名查询</label>
+					</li>
+					<li mode-target="pm3">
+						<span class="glyphicon glyphicon-search"></span>
+						<label>按手机号查询</label>
+					</li>
+				</ul>
+			</div>
+		</div>
+		
+		<!-- 模态框（Modal） -->
+		<div class="modal fade" id="teacherInfo" tabindex="-1" role="dialog" 
+		   aria-labelledby="myModalLabel2" aria-hidden="true">
+		   <div class="modal-dialog">
+		      <div class="modal-content">
+		         <div class="modal-header">
+		            <button type="button" class="close" 
+		               data-dismiss="modal" aria-hidden="true">
+		                  &times;
+		            </button>
+		            <h4 class="modal-title" id="myModalLabel2">
+		             	 教师信息详情
+		            </h4>
+		         </div>
+		         <div class="modal-body">
+		         	
+		           	<div class="modal_infoShow">
+		           	 	<div>
+		           	 		<label>教师名称:</label>
+				    		<p id="teacherName"></p>
+		           	 	</div>	
+				    	<div>
+				    		<label>联系电话:</label>
+				        	<p id="teacherNum"></p>
+				    	</div>
+				        <div>
+				        	<label>简介:</label>
+				        	<p id="teacherDesshort"></p>
+				        </div>
+				        <div>
+				        	<label>详情:</label>
+				        	<p id="teacherDeslong"></p>
+				        </div>
+				        <div>
+				        	<label>地址:</label>
+				        	<p id="teacherAddress"></p>
+				        </div>
+				        
+				    </div>
+				    <div class="modal-btnContent">
+				    	<button class="btn btn-success btn-block modal-button" id="teacherConfirBtn">通过审核</button>
+				   	 	<button class="btn btn-danger btn-block modal-button" id="teacherRejectBtn">拒绝通过审核</button>
+				    </div>
+				    
+				    <hr />
+				    <div id="rejectArea_teacher">
+				    	<label>拒绝通过原因</label>
+				    	<textarea class="form-control" id="rejectReason_teacher"></textarea>
+				    	<button class="btn btn-success btn-block modal-button" id="teacherReject">确定</button>
+				    </div>
+		         </div>
+		      </div><!-- /.modal-content -->
+			</div><!-- /.modal -->
+		</div>
+		
+		<!-- 模态框（Modal） -->
+		<div class="modal fade" id="courseInfo" tabindex="-1" role="dialog" 
+		   aria-labelledby="myModalLabel1" aria-hidden="true">
+		   <div class="modal-dialog">
+		      <div class="modal-content">
+		         <div class="modal-header">
+		            <button type="button" class="close" 
+		               data-dismiss="modal" aria-hidden="true">
+		                  &times;
+		            </button>
+		            <h4 class="modal-title" id="myModalLabel1">
+		             	 待审核课程信息详情
+		            </h4>
+		         </div>
+		         <div class="modal-body">
+		         	
+		           	<div class="modal_infoShow">
+		           	 	<div>
+		           	 		<label>课程名称:</label>
+				    		<p id="courseName"></p>
+		           	 	</div>	
+				    	<div>
+				    		<label>课程大类:</label>
+				        	<p id="courseType"></p>
+				    	</div>
+				    	<div>
+				    		<label>是否提供试听:</label>
+				        	<p id="courseTrail"></p>
+				    	</div>
+				        <div>
+				        	<label>课程时长:</label>
+				        	<p id="courseLength"></p>
+				        </div>
+				        <div>
+				        	<label>课程节数:</label>
+				        	<p id="courseTotal"></p>
+				        </div>
+				        <div>
+				        	<label>上课地址:</label>
+				        	<div id="courseAddress">
+								<p style="display: none;text-indent: 2em;word-break: break-word;" class="address1"></p>
+								<p style="display: none;text-indent: 2em;word-break: break-word;" class="address2"></p>
+							</div>
+				        </div>
+				         <div>
+				        	<label>上课时间（星期）:</label>
+				        	<p id="courseDay"></p>
+				        </div>
+				         <div>
+				        	<label>上课时段:</label>
+				        	<p id="courseTime"></p>
+				        </div>
+				         <div>
+				        	<label>课程花费:</label>
+				        	<p id="coursePrice"></p>
+				        </div>
+				         <div>
+				        	<label>课程备注:</label>
+				        	<p id="courseNote"></p>
+				        </div>
+				         <div>
+				        	<label>授课老师:</label>
+				        	<p id="courseTeacher"></p>
+				        </div>
+				        <div>
+				        	<label>授课老师简介:</label>
+				        	<p id="courseTeacher_short"></p>
+				        </div>
+				         <div>
+				        	<label>授课老师详情:</label>
+				        	<p id="courseTeacher_long"></p>
+				        </div>
+				         <div>
+				        	<label>授课老师联系电话:</label>
+				        	<p id="courseTeacher_phoneNum"></p>
+				        </div>
+				    </div>
+				    <div class="modal-btnContent">
+				    	<button class="btn btn-success btn-block modal-button" id="courseConfirBtn">通过审核</button>
+				   	 	<button class="btn btn-danger btn-block modal-button" id="courseRejectBtn">拒绝通过审核</button>
+				    </div>
+				    
+				    <hr />
+				    <div id="rejectArea_course">
+				    	<label>拒绝通过原因</label>
+				    	<textarea class="form-control" id="rejectReason_course"></textarea>
+				    	<button class="btn btn-success btn-block modal-button" id="courseReject">确定</button>
+				    </div>
+		         </div>
+		      </div><!-- /.modal-content -->
+			</div><!-- /.modal -->
+		</div>
+		
+		<!-- 模态框（Modal） -->
+		<div class="modal fade" id="deletWarning" tabindex="-1" role="dialog" 
+		   aria-labelledby="myModalLabel3" aria-hidden="true">
+		   <div class="modal-dialog">
+		      <div class="modal-content">
+		         <div class="modal-header">
+		            <button type="button" class="close" 
+		               data-dismiss="modal" aria-hidden="true">
+		                  &times;
+		            </button>
+		            <h4 class="modal-title" id="myModalLabel3">
+		             	 删除操作确认
+		            </h4>
+		         </div>
+		         <div class="modal-body">
+		         	<p>你即将进行的操作将会永久删除数据，是否确定删除？</p>
+				    <div class="modal-btnContent">
+				    	<button class="btn btn-success btn-block modal-button" id="yesBtn">确定删除</button>
+				   	 	<button class="btn btn-danger btn-block modal-button" id="noBtn">取消删除</button>
+				    </div>
+		         </div>
+		      </div><!-- /.modal-content -->
+			</div><!-- /.modal -->
+		</div>
+		
+		<!-- main js -->
+		<script type="text/javascript" src="bootstrap-3.3.5-dist/js/jquery.min.js" ></script>
+		<script type="text/javascript" src="bootstrap-3.3.5-dist/js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="js/theAjax.js" ></script>
+		<script type="text/javascript" src="js/xframe.js" ></script>
+		<script type="text/javascript" src="js/teacherManager.js" ></script>
+		<script type="text/javascript" src="js/cousreManager.js" ></script>
+	</body>
+</html>
